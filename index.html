@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahelnetha | Python Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+        
+        body {
+            background-color: #1e1e1e; /* VSCode Dark */
+            color: #d4d4d4;
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .editor {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .editor:hover {
+            transform: translateY(-5px);
+        }
+
+        .editor-header {
+            background-color: #333333;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            margin-left: 5px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+
+        .filename {
+            color: #858585;
+            font-size: 14px;
+            margin: 0 auto;
+            position: relative;
+            left: -20px;
+            user-select: none;
+        }
+
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+            overflow-x: auto;
+        }
+
+        .keyword { color: #569cd6; font-weight: 500;} /* blue */
+        .string { color: #ce9178; } /* orange */
+        .function { color: #dcdcaa; } /* yellow */
+        .comment { color: #6a9955; font-style: italic;} /* green */
+        .variable { color: #9cdcfe; } /* light blue */
+        .operator { color: #d4d4d4; }
+        .number-color { color: #b5cea8; }
+
+        .line {
+            display: flex;
+            white-space: pre;
+            margin-bottom: 2px;
+        }
+
+        .line:hover {
+            background-color: #333333;
+            border-radius: 2px;
+        }
+
+        .number {
+            color: #858585;
+            padding-right: 25px;
+            user-select: none;
+            width: 30px;
+            text-align: right;
+            border-right: 1px solid #444;
+            margin-right: 15px;
+        }
+
+        a {
+            color: #ce9178;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 4px;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            background-color: #ce917833;
+            text-decoration-style: solid;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="editor">
+        <div class="editor-header">
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="filename">shahelnetha.py</div>
+        </div>
+        <div class="content" id="code-content">
+            <!-- JavaScript will populate this so it looks like typing in the future, for now it just renders beautifully -->
+        </div>
+    </div>
+
+    <script>
+        const code = `
+<span class="keyword">class</span> <span class="function">Developer</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>):
+        <span class="variable">self</span>.name <span class="operator">=</span> <span class="string">"Shahelnetha"</span>
+        <span class="variable">self</span>.role <span class="operator">=</span> <span class="string">"Beginner Python Developer"</span>
+        <span class="variable">self</span>.status <span class="operator">=</span> <span class="string">"Learning & Building 🚀"</span>
+        <span class="variable">self</span>.skills <span class="operator">=</span> [<span class="string">"Python"</span>, <span class="string">"Problem Solving"</span>, <span class="string">"Logic"</span>, <span class="string">"HTML/CSS"</span>]
+
+    <span class="keyword">def</span> <span class="function">about_me</span>(<span class="variable">self</span>):
+        <span class="comment"># A quick introduction</span>
+        <span class="keyword">return</span> <span class="string">"""
+        Welcome to my Python-themed portfolio! 
+        I am an aspiring developer who is passionate about coding.
+        I love learning new technologies, writing scripts, 
+        and building simple, elegant applications.
+        """</span>
+
+    <span class="keyword">def</span> <span class="function">get_contact_info</span>(<span class="variable">self</span>):
+        <span class="keyword">return</span> {
+            <span class="string">"email"</span>: <a href="mailto:shahelnetha@example.com" class="string">"shahelnetha@example.com"</a>,
+            <span class="string">"github"</span>: <a href="https://github.com/shahelnetha" target="_blank" class="string">"github.com/shahelnetha"</a>
+        }
+
+<span class="comment"># ==========================================</span>
+<span class="comment"># Execution Block</span>
+<span class="comment"># ==========================================</span>
+
+<span class="keyword">if</span> __name__ <span class="operator">==</span> <span class="string">"__main__"</span>:
+    <span class="variable">me</span> <span class="operator">=</span> <span class="function">Developer</span>()
+    <span class="function">print</span>(f<span class="string">"👋 Hi, I am {<span class="variable">me</span>.name}!"</span>)
+    <span class="function">print</span>(f<span class="string">"💻 Role: {<span class="variable">me</span>.role}"</span>)
+    <span class="function">print</span>(f<span class="string">"🛠️ Top Skills: {<span class="string">', '</span>.<span class="function">join</span>(<span class="variable">me</span>.skills)}"</span>)
+`;
+
+        const codeLines = code.trim().split('\\n');
+        const container = document.getElementById('code-content');
+
+        codeLines.forEach((line, index) => {
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'line';
+            
+            const numSpan = document.createElement('span');
+            numSpan.className = 'number';
+            numSpan.innerText = index + 1;
+
+            const textSpan = document.createElement('span');
+            textSpan.innerHTML = line || ' ';
+
+            lineDiv.appendChild(numSpan);
+            lineDiv.appendChild(textSpan);
+            container.appendChild(lineDiv);
+        });
+    </script>
+</body>
+</html>
